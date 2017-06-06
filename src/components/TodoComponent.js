@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-function TodoComponent({todos, addTodo, onActualTodoChange}){
+function TodoComponent({todos, addTodo, onActualTodoChange, onClick}){
   return(
     <div>
       <input onChange={onActualTodoChange} type="text"/>
@@ -10,6 +10,7 @@ function TodoComponent({todos, addTodo, onActualTodoChange}){
       <ul>
         {todos.map(todo => (<TodoListItem
           text={todo.text}
+          completed={todo.completed}
           key={todo.id}
           />
         ))}

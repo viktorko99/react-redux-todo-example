@@ -27,6 +27,7 @@ class TodoContainer extends Component {
          <TodoComponent
            todos={this.props.todos}
            addTodo={() => this.props.addTodo(this.state.actualTodo)}
+           setTodo={() => this.props.setTodo()}
            onActualTodoChange={this.handleActualTodoChange}
          />
       </div>
