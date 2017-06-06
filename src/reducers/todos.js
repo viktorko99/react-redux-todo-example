@@ -1,7 +1,14 @@
-const todos = (state = null, action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
       case 'ADD_TODO':
-          return [...state];
+          console.log('action was made');
+          return [
+            ...state,
+            {
+              text: action.text,
+              id: action.id
+            }
+          ]
 
       default:
         return state;

@@ -1,3 +1,6 @@
-export const addTodo = () => ({
-    type: 'ADD_TODO'
+let nextId = 0;
+export const addTodo = (text) => ({
+    type: 'ADD_TODO',
+    text,
+    id: nextId++
 })

@@ -9,7 +9,7 @@ function TodoContainer({todos, addTodo}) {
     <div>
        <TodoComponent
          todos={todos}
-         addTodo={() => addTodo()}
+         addTodo={() => addTodo('ahoj')}
        />
     </div>
   );
