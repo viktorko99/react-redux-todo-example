@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addTodo} from '../actions/actions';
+import {addTodo, setTodo} from '../actions/actions';
 import TodoComponent from '../components/TodoComponent';
 
 class TodoContainer extends Component {
@@ -10,9 +10,11 @@ class TodoContainer extends Component {
 
     this.state = {
       actualTodo: '',
+      clickedTodo: 0,
     }
 
     this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
+    this.handleClickedTodoChange = this.handleClickedTodoChange.bind(this);
   }
 
   handleActualTodoChange(event) {
@@ -21,13 +23,22 @@ class TodoContainer extends Component {
      });
   }
 
+  handleClickedTodoChange(todoID) {
+     this.setState({
+       clickedTodo: todoID
+     });
+    console.log('--------------------', todoID);
+    this.props.setTodo(this.state.clickedTodo)
+  }
+
   render() {
+    console.log('----------------hey', this.props.todos)
     return (
       <div>
          <TodoComponent
            todos={this.props.todos}
            addTodo={() => this.props.addTodo(this.state.actualTodo)}
-           setTodo={() => this.props.setTodo()}
+           onClickedTodoChange={this.handleClickedTodoChange}
            onActualTodoChange={this.handleActualTodoChange}
          />
       </div>
@@ -44,7 +55,8 @@ class TodoContainer extends Component {
 
   function mapDispatchToProps(dispatch) {
      return bindActionCreators(
-       {addTodo: addTodo}, dispatch);
+       {addTodo: addTodo,
+        setTodo: setTodo}, dispatch);
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

@@ -11,6 +11,7 @@ const todos = (state = [], action) => {
             }
           ]
       case 'SET_TODO':
+      console.log('reducer active');
       return state.map(todo =>
       (todo.id === action.id)
         ? {...todo, completed: !todo.completed}

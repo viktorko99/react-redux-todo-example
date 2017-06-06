@@ -1,16 +1,18 @@
 import React from 'react';
 
 function TodoListItem(props) {
-    if (!props.completed) {
-      console.log('i am not completed');
-    }
+  const { setTodo, todoID, text, completed } = props;
 
-    return (
-      <li onClick={props.onClick}
-    style={{textDecoration: props.completed ? 'line-through' : 'none'}}>
-        {props.text}
-      </li>
-    );
+  console.log(props)
+  return (
+    <li
+      onClick={() => setTodo(todoID)}
+      id={todoID}
+      style={{textDecoration: completed ? 'line-through' : 'none'}}
+    >
+      {text}
+    </li>
+  );
 }
 
 export default TodoListItem;
