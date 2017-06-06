@@ -1,29 +1,49 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {addTodo} from '../actions/actions';
 import TodoComponent from '../components/TodoComponent';
 
-function TodoContainer({todos, addTodo}) {
-  return (
-    <div>
-       <TodoComponent
-         todos={todos}
-         addTodo={() => addTodo('ahoj')}
-       />
-    </div>
-  );
+class TodoContainer extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      actualTodo: '',
+    }
+
+    this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
+  }
+
+  handleActualTodoChange(event) {
+     this.setState({
+       actualTodo: event.target.value
+     });
+  }
+
+  render() {
+    return (
+      <div>
+         <TodoComponent
+           todos={this.props.todos}
+           addTodo={() => this.props.addTodo(this.state.actualTodo)}
+           onActualTodoChange={this.handleActualTodoChange}
+         />
+      </div>
+    );
+  }
 }
 
-function mapStateToProps(todos) {
-  return (
-   todos: state.todos
- );
-}
 
-function mapDispatchToProps(dispatch) {
-   return bindActionCreators(
-     {addTodo: addTodo}, dispatch);
-}
+  function mapStateToProps(state) {
+    return {
+     todos: state.todos
+   };
+  }
+
+  function mapDispatchToProps(dispatch) {
+     return bindActionCreators(
+       {addTodo: addTodo}, dispatch);
+  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

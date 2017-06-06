@@ -1,10 +1,10 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-function TodoComponent({todos, addTodo}){
+function TodoComponent({todos, addTodo, onActualTodoChange}){
   return(
     <div>
-      <input></input>
+      <input onChange={onActualTodoChange} type="text"/>
       <button onClick={addTodo}>add</button>
 
       <ul>
