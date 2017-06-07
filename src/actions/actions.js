@@ -17,3 +17,7 @@ export const showActive = () => ({
 export const showCompleted = () => ({
     type: 'SHOW_COMPLETED'
 })
+
+export const showAll = () => ({
+    type: 'SHOW_ALL'
+})

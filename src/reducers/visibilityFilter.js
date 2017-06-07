@@ -6,6 +6,9 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
       case 'SHOW_COMPLETED':
         return action.type;
 
+      case 'SHOW_ALL':
+        return action.type;
+
       default:
         return 'SHOW_ALL';
     }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addTodo, setTodo, showActive, showCompleted} from '../actions/actions';
+import {addTodo, setTodo, showActive, showCompleted, showAll} from '../actions/actions';
 import TodoComponent from '../components/TodoComponent';
 
 class TodoContainer extends Component {
@@ -36,6 +36,7 @@ class TodoContainer extends Component {
            onActualTodoChange={this.handleActualTodoChange}
            showActive={() => this.props.showActive()}
            showCompleted={() => this.props.showCompleted()}
+           showAll={() => this.props.showAll()}
          />
       </div>
     );
@@ -70,7 +71,8 @@ class TodoContainer extends Component {
        {addTodo: addTodo,
         setTodo: setTodo,
         showActive: showActive,
-        showCompleted: showCompleted}, dispatch);
+        showCompleted: showCompleted,
+        showAll: showAll}, dispatch);
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);
