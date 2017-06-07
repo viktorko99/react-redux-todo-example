@@ -24,11 +24,7 @@ class TodoContainer extends Component {
   }
 
   handleClickedTodoChange(todoID) {
-     this.setState({
-       clickedTodo: todoID
-     });
-    console.log('--------------------', todoID);
-    this.props.setTodo(this.state.clickedTodo)
+    this.props.setTodo(todoID)
   }
 
   render() {
