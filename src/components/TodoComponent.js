@@ -20,6 +20,12 @@ function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange}){
           />
          ))}
       </ul>
+
+      <div>
+         <button>Show all</button>
+         <button>Show active</button>
+         <button>Show completed</button>
+      </div>
   </div>
 
   )
