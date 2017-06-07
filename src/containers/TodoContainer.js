@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addTodo, setTodo} from '../actions/actions';
+import {addTodo, setTodo, showActive, showCompleted} from '../actions/actions';
 import TodoComponent from '../components/TodoComponent';
 
 class TodoContainer extends Component {
@@ -10,7 +10,6 @@ class TodoContainer extends Component {
 
     this.state = {
       actualTodo: '',
-      clickedTodo: 0,
     }
 
     this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
@@ -35,23 +34,43 @@ class TodoContainer extends Component {
            addTodo={() => this.props.addTodo(this.state.actualTodo)}
            onAddTodoChange={this.handleAddTodoChange}
            onActualTodoChange={this.handleActualTodoChange}
+           showActive={() => this.props.showActive()}
+           showCompleted={() => this.props.showCompleted()}
          />
       </div>
     );
   }
 }
 
+ const handleVisibiltyfilter = (todos, filter) => {
+  switch (filter) {
+    case 'SHOW_ACTIVE':
+      return todos.map(todo => !todo.completed);
+
+    case 'SHOW_COMPLETED':
+      return todos.map(todo => todo.completed);
+
+    case 'SHOW_ALL':
+      return todos;
+
+    default:
+      return todos;
+  }
+}
 
   function mapStateToProps(state) {
+    console.log(state.visibilityFilter);
     return {
-     todos: state.todos
+     todos: handleVisibiltyfilter(state.todos, state.visibilityFilter)
    };
   }
 
   function mapDispatchToProps(dispatch) {
      return bindActionCreators(
        {addTodo: addTodo,
-        setTodo: setTodo}, dispatch);
+        setTodo: setTodo,
+        showActive: showActive,
+        showCompleted: showCompleted}, dispatch);
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

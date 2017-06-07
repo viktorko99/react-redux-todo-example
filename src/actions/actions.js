@@ -9,3 +9,11 @@ export const setTodo = (id) => ({
     type: 'SET_TODO',
     id
 })
+
+export const showActive = () => ({
+    type: 'SHOW_ACTIVE'
+})
+
+export const showCompleted = () => ({
+    type: 'SHOW_COMPLETED'
+})

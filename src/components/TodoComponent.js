@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange}){
+function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange, showActive, showCompleted}){
 
   return(
     <div>
@@ -23,8 +23,8 @@ function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange}){
 
       <div>
          <button>Show all</button>
-         <button>Show active</button>
-         <button>Show completed</button>
+         <button onClick={showActive}>Show active</button>
+         <button onClick={showCompleted}>Show completed</button>
       </div>
   </div>
 
