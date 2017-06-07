@@ -14,27 +14,26 @@ class TodoContainer extends Component {
     }
 
     this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
-    this.handleClickedTodoChange = this.handleClickedTodoChange.bind(this);
+    this.handleAddTodoChange = this.handleAddTodoChange.bind(this);
   }
 
-  handleActualTodoChange(event) {
+  handleAddTodoChange(event) {
      this.setState({
        actualTodo: event.target.value
      });
   }
 
-  handleClickedTodoChange(todoID) {
+  handleActualTodoChange(todoID) {
     this.props.setTodo(todoID)
   }
 
   render() {
-    console.log('----------------hey', this.props.todos)
     return (
       <div>
          <TodoComponent
            todos={this.props.todos}
            addTodo={() => this.props.addTodo(this.state.actualTodo)}
-           onClickedTodoChange={this.handleClickedTodoChange}
+           onAddTodoChange={this.handleAddTodoChange}
            onActualTodoChange={this.handleActualTodoChange}
          />
       </div>

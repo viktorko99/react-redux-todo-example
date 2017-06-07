@@ -1,11 +1,11 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-function TodoComponent({todos, addTodo, onActualTodoChange, onClickedTodoChange}){
+function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange}){
 
   return(
     <div>
-      <input onChange={onActualTodoChange} type="text"/>
+      <input onChange={onAddTodoChange} type="text"/>
       <button onClick={addTodo}>add</button>
 
       <ul>
@@ -16,7 +16,7 @@ function TodoComponent({todos, addTodo, onActualTodoChange, onClickedTodoChange}
             text={todo.text}
             completed={todo.completed}
             todoID={todo.id}
-            setTodo={onClickedTodoChange}
+            onActualTodoChange={onActualTodoChange}
           />
          ))}
       </ul>
