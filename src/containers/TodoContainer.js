@@ -45,10 +45,10 @@ class TodoContainer extends Component {
  const handleVisibiltyfilter = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ACTIVE':
-      return todos.map(todo => !todo.completed);
+      return todos.filter(todo => !todo.completed);
 
     case 'SHOW_COMPLETED':
-      return todos.map(todo => todo.completed);
+      return todos.filter(todo => todo.completed);
 
     case 'SHOW_ALL':
       return todos;
