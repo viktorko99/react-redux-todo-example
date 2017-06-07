@@ -4,3 +4,8 @@ export const addTodo = (text) => ({
     text,
     id: nextId++
 })
+
+export const setTodo = (id) => ({
+    type: 'SET_TODO',
+    id
+})
