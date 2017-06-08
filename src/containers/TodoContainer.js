@@ -14,6 +14,10 @@ class TodoContainer extends Component {
 
     this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
     this.handleAddTodoChange = this.handleAddTodoChange.bind(this);
+    this.handleShowAllClick = this.handleButtonClick.bind(this, 'SHOW_ALL');
+    this.handleShowActiveClick = this.handleButtonClick.bind(this, 'SHOW_ACTIVE');
+    this.handleShowCompletedClick = this.handleButtonClick.bind(this, 'SHOW_COMPLETED');
+
   }
 
   handleAddTodoChange(event) {
@@ -26,6 +30,22 @@ class TodoContainer extends Component {
     this.props.setTodo(todoID)
   }
 
+  handleButtonClick(id) {
+    switch (id) {
+      case 'SHOW_ALL':
+        this.props.showAll();
+        break;
+      case 'SHOW_ACTIVE':
+        this.props.showActive();
+        break;
+      case 'SHOW_COMPLETED':
+        this.props.showCompleted();
+        break;
+      default:
+        this.props.showAll();
+    }
+  }
+
   render() {
     return (
       <div>
@@ -34,9 +54,9 @@ class TodoContainer extends Component {
            addTodo={() => this.props.addTodo(this.state.actualTodo)}
            onAddTodoChange={this.handleAddTodoChange}
            onActualTodoChange={this.handleActualTodoChange}
-           showActive={() => this.props.showActive()}
-           showCompleted={() => this.props.showCompleted()}
-           showAll={() => this.props.showAll()}
+           showActive={this.handleShowActiveClick}
+           showCompleted={this.handleShowCompletedClick}
+           showAll={this.handleShowAllClick}
          />
       </div>
     );
