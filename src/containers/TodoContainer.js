@@ -12,11 +12,11 @@ class TodoContainer extends Component {
       actualTodo: '',
     }
 
-    this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
-    this.handleAddTodoChange = this.handleAddTodoChange.bind(this);
-    this.handleShowAllClick = this.handleButtonClick.bind(this, 'SHOW_ALL');
-    this.handleShowActiveClick = this.handleButtonClick.bind(this, 'SHOW_ACTIVE');
-    this.handleShowCompletedClick = this.handleButtonClick.bind(this, 'SHOW_COMPLETED');
+      this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
+      this.handleAddTodoChange = this.handleAddTodoChange.bind(this);
+      this.handleShowAllClick = this.handleButtonClick.bind(this, 'SHOW_ALL');
+      this.handleShowActiveClick = this.handleButtonClick.bind(this, 'SHOW_ACTIVE');
+      this.handleShowCompletedClick = this.handleButtonClick.bind(this, 'SHOW_COMPLETED');
 
   }
 
@@ -88,11 +88,11 @@ class TodoContainer extends Component {
 
   function mapDispatchToProps(dispatch) {
      return bindActionCreators(
-       {addTodo: addTodo,
-        setTodo: setTodo,
-        showActive: showActive,
-        showCompleted: showCompleted,
-        showAll: showAll}, dispatch);
+       {addTodo,
+        setTodo,
+        showActive,
+        showCompleted,
+        showAll}, dispatch);
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

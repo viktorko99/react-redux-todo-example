@@ -10,7 +10,7 @@ function TodoListItem(props) {
       id={todoID}
       style={{textDecoration: completed ? 'line-through' : 'none'}}
     >
-      {text}
+        {text}
     </li>
   );
 }
