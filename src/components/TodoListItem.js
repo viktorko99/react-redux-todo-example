@@ -1,17 +1,17 @@
 import React from 'react';
+import { ListGroupItem } from 'react-bootstrap';
 
 function TodoListItem(props) {
   const {  onActualTodoChange, todoID, text, completed } = props;
 
-  console.log(props)
+  //console.log(props)
   return (
-    <li
-      onClick={() =>  onActualTodoChange(todoID)}
+    <ListGroupItem onClick={() =>  onActualTodoChange(todoID)}
       id={todoID}
       style={{textDecoration: completed ? 'line-through' : 'none'}}
     >
-        {text}
-    </li>
+      {text}
+    </ListGroupItem>
   );
 }
 
