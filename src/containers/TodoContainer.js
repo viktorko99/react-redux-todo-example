@@ -21,9 +21,10 @@ class TodoContainer extends Component {
   }
 
   handleAddTodoChange(event) {
-     this.setState({
-       actualTodo: event.target.value
-     });
+     if (event.key === 'Enter') {
+     console.log('do validate');
+     this.props.addTodo(event.target.value)
+   }
   }
 
   handleActualTodoChange(todoID) {
@@ -51,7 +52,6 @@ class TodoContainer extends Component {
       <div>
          <TodoComponent
            todos={this.props.todos}
-           addTodo={() => this.props.addTodo(this.state.actualTodo)}
            onAddTodoChange={this.handleAddTodoChange}
            onActualTodoChange={this.handleActualTodoChange}
            showActive={this.handleShowActiveClick}

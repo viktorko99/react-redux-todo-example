@@ -1,13 +1,16 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
-import {Button, FormGroup, FormControl} from 'react-bootstrap';
+import TodoInputItem from './TodoInputItem';
+import {Button} from 'react-bootstrap';
 
 function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange, showActive, showCompleted, showAll}){
 
   return(
     <div>
-      <input onChange={onAddTodoChange} type="text"/>
-      <Button onClick={addTodo} bsSize="small">Add</Button>
+        <TodoInputItem
+          onAddTodoChange={onAddTodoChange}
+          addTodo={addTodo}
+        />
 
       <ul>
         {todos.map(todo => (
@@ -23,9 +26,9 @@ function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange, sho
       </ul>
 
       <div>
-         <button onClick={showAll}>Show all</button>
-         <button onClick={showActive}>Show active</button>
-         <button onClick={showCompleted}>Show completed</button>
+         <Button onClick={showAll}>Show all</Button>
+         <Button onClick={showActive}>Show active</Button>
+         <Button onClick={showCompleted}>Show completed</Button>
       </div>
   </div>
 
