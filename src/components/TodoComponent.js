@@ -1,12 +1,13 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
+import {Button, FormGroup, FormControl} from 'react-bootstrap';
 
 function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange, showActive, showCompleted, showAll}){
 
   return(
     <div>
       <input onChange={onAddTodoChange} type="text"/>
-      <button onClick={addTodo}>add</button>
+      <Button onClick={addTodo} bsSize="small">Add</Button>
 
       <ul>
         {todos.map(todo => (

@@ -1,9 +1,10 @@
 import React from 'react';
 import TodoContainer from '../containers/TodoContainer';
+import {PageHeader} from 'react-bootstrap';
 
 const App = () => (
   <div>
-    <h1>Todo List</h1>
+     <PageHeader>Todo List</PageHeader>
     <TodoContainer />
   </div>
 )
