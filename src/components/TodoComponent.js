@@ -1,19 +1,21 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 import TodoInputItem from './TodoInputItem';
+import Center from 'react-center';
 
 function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange, showActive, showCompleted, showAll}){
 
   return(
     <div>
-        <TodoInputItem
-          onAddTodoChange={onAddTodoChange}
-          addTodo={addTodo}
-          showActive={showActive}
-          showCompleted={showCompleted}
-          showAll={showAll}
-        />
-
+      <Center>
+          <TodoInputItem
+            onAddTodoChange={onAddTodoChange}
+            addTodo={addTodo}
+            showActive={showActive}
+            showCompleted={showCompleted}
+            showAll={showAll}
+          />
+      </Center>
       <ul>
         {todos.map(todo => (
 

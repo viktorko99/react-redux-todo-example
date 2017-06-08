@@ -8,7 +8,7 @@ function TodoListItem(props) {
   return (
     <ListGroupItem onClick={() =>  onActualTodoChange(todoID)}
       id={todoID}
-      style={{textDecoration: completed ? 'line-through' : 'none'}}
+      style={{textDecoration: completed ? 'line-through' : 'none', fontWeight: completed ? 'normal' : 'bold'}}
     >
       {text}
     </ListGroupItem>
