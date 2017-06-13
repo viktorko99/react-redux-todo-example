@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 import App from '../components/App';
 import NotFound from '../components/NotFound';
-import WelcomePage from '../components/WelcomePage';
+import WelcomePage from '../containers/WelcomePage';
 
 
 
@@ -15,13 +15,15 @@ class Routers extends Component {
         {' '}
         <Link to='/todo'>todos</Link>
         {' '}
-        <Link to='/notfound'>NotFound</Link>
+        <Link to='/notfound'>not found</Link>
+        {' '}
+        <Link to='/login'>login</Link>
 
-<Switch>
-  <Route path='/' exact component={WelcomePage}/>
-  <Route path='/todo' component={App}/>
-  <Route component={NotFound}/>
-</Switch>
+        <Switch>
+          <Route path='/' exact component={WelcomePage}/>
+          <Route path='/todo' component={App}/>
+          <Route component={NotFound}/>
+        </Switch>
 
       </div>
     );

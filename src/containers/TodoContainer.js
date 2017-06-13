@@ -8,22 +8,18 @@ class TodoContainer extends Component {
   constructor() {
     super();
 
-    this.state = {
-      actualTodo: '',
-    }
-
       this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
       this.handleAddTodoChange = this.handleAddTodoChange.bind(this);
       this.handleShowAllClick = this.handleButtonClick.bind(this, 'SHOW_ALL');
       this.handleShowActiveClick = this.handleButtonClick.bind(this, 'SHOW_ACTIVE');
       this.handleShowCompletedClick = this.handleButtonClick.bind(this, 'SHOW_COMPLETED');
-
   }
 
   handleAddTodoChange(event) {
      if (event.key === 'Enter') {
      console.log('do validate');
      this.props.addTodo(event.target.value)
+     event.target.value = '';
    }
   }
 
