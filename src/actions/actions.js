@@ -21,3 +21,14 @@ export const showCompleted = () => ({
 export const showAll = () => ({
     type: 'SHOW_ALL'
 })
+
+export const tryLogin = (name,password) => ({
+    type: 'ATTEMPT_LOGIN',
+    name,
+    password
+})
+
+export const attemptLogin = (user) => ({
+    type: 'ATTEMPT_LOGIN',
+    user
+})

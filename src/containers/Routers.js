@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import App from '../components/App';
 import NotFound from '../components/NotFound';
 import WelcomePage from '../containers/WelcomePage';
+import Login from '../containers/Login';
 
 
 
@@ -22,6 +23,7 @@ class Routers extends Component {
         <Switch>
           <Route path='/' exact component={WelcomePage}/>
           <Route path='/todo' component={App}/>
+          <Route path='/login' component={Login}/>
           <Route component={NotFound}/>
         </Switch>
 
