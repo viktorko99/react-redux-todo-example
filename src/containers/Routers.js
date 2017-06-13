@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 import App from '../components/App';
 import NotFound from '../components/NotFound';
@@ -17,10 +17,12 @@ class Routers extends Component {
         {' '}
         <Link to='/notfound'>NotFound</Link>
 
+<Switch>
+  <Route path='/' exact component={WelcomePage}/>
+  <Route path='/todo' component={App}/>
+  <Route component={NotFound}/>
+</Switch>
 
-        <Route path='/' exact component={WelcomePage}/>
-        <Route path='/todo' component={App}/>
-        <Route path='/notfound' component={NotFound}/>
       </div>
     );
   }
