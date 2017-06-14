@@ -7,8 +7,16 @@ import Routers from './containers/Routers'
 import reducer from './reducers'
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import { loadState, saveState } from './localStorage';
 
-const store = createStore(reducer)
+const persistedState = loadState();
+const store = createStore(reducer, persistedState);
+
+store.subscribe(() => {
+  saveState({
+    todos: store.getState().todos
+  });
+});
 
 render(
   <Provider store={store}>

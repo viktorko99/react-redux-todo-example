@@ -1,8 +1,8 @@
-let nextId = 0;
+import { v4 } from 'uuid';
 export const addTodo = (text) => ({
     type: 'ADD_TODO',
     text,
-    id: nextId++
+    id: v4(),
 })
 
 export const setTodo = (id) => ({
