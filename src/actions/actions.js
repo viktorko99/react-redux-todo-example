@@ -22,13 +22,13 @@ export const showAll = () => ({
     type: 'SHOW_ALL'
 })
 
-export const tryLogin = (name,password) => ({
+export const attemptLogin = (name,password) => ({
     type: 'ATTEMPT_LOGIN',
     name,
     password
 })
 
-export const attemptLogin = (user) => ({
-    type: 'ATTEMPT_LOGIN',
+export const userLogin = (user) => ({
+    type: 'USER_LOGIN',
     user
 })

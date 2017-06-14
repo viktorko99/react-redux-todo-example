@@ -15,4 +15,4 @@ const activeUser = (state = null, action) => {
     }
 }
 
-export default todos;
+export default activeUser;
