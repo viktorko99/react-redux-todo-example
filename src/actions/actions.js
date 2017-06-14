@@ -30,3 +30,13 @@ export const userLogin = (user) => ({
     type: 'USER_LOGIN',
     user
 })
+
+export const AddUser = (first, last, password, age, description) => ({
+    type: 'USER_LOGIN',
+    id: v4(),
+    first,
+    last,
+    password,
+    age,
+    description,
+})
