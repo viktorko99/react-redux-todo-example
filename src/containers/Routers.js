@@ -5,6 +5,7 @@ import App from '../components/App';
 import NotFound from '../components/NotFound';
 import WelcomePage from '../containers/WelcomePage';
 import Login from '../containers/Login';
+import Profile from '../containers/Profile';
 
 
 
@@ -19,11 +20,14 @@ class Routers extends Component {
         <Link to='/notfound'>not found</Link>
         {' '}
         <Link to='/login'>login</Link>
+        {' '}
+        <Link to='/profile'>profile</Link>
 
         <Switch>
           <Route path='/' exact component={WelcomePage}/>
           <Route path='/todo' component={App}/>
           <Route path='/login' component={Login}/>
+          <Route path='/profile' component={Profile}/>
           <Route component={NotFound}/>
         </Switch>
 

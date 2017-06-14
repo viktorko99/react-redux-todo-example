@@ -37,6 +37,7 @@ class Login extends Component {
         if((user.first === this.state.userName) && (user.password === this.state.password)) {
           console.log(user);
            this.props.userLogin(user);
+           this.props.history.push('/profile');
         }})
   }
 

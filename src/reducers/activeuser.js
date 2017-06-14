@@ -8,7 +8,7 @@ const activeUser = (state = null, action) => {
         };
 
       case 'USER_LOGIN':
-          return action.object;
+          return action.user;
 
       default:
         return null;
