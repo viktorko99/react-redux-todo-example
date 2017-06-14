@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {attemptLogin, userLogin} from '../actions/actions';
+import {userLogin} from '../actions/actions';
 import LoginForm from '../components/LoginForm';
 
 class Login extends Component {
@@ -60,8 +60,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
    return bindActionCreators(
-     {attemptLogin,
-      userLogin}, dispatch);
+     {userLogin}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

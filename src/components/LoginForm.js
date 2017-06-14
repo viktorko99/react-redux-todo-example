@@ -17,7 +17,7 @@ function LoginForm({onLogin, onUserNameInputChange, onPasswordIntputChange}) {
       </Center>
 
       <Center>
-        <Button onClick={onLogin}>Login</Button>
+        <Button onClick={onLogin}>Log In</Button>
       </Center>
     </div>
   );

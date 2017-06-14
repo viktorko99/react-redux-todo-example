@@ -22,10 +22,8 @@ export const showAll = () => ({
     type: 'SHOW_ALL'
 })
 
-export const attemptLogin = (name,password) => ({
-    type: 'ATTEMPT_LOGIN',
-    name,
-    password
+export const userLogout = () => ({
+    type: 'USER_LOGOUT',
 })
 
 export const userLogin = (user) => ({

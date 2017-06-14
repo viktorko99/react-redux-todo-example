@@ -1,8 +1,8 @@
 import React from 'react';
-import NotFound from './NotFound';
-import { Image } from 'react-bootstrap';
+import LoginNotFound from './LoginNotFound';
+import { Image, Button } from 'react-bootstrap';
 
-function ProfileComponent({user, }){
+function ProfileComponent({ user, onLogout }){
   const divStyle = {
     background: "#eee",
     padding: "20px",
@@ -10,7 +10,7 @@ function ProfileComponent({user, }){
   };
 
   if (user === null) {
-    return <NotFound />;
+    return <LoginNotFound />;
   }
 
   return(
@@ -19,9 +19,9 @@ function ProfileComponent({user, }){
         <h1>{user.first} {user.last}</h1>
       <h4>Description: {user.description}</h4>
       <p>Age: {user.age}</p>
-
-
+      <Button onClick={onLogout} bsStyle="danger">Log Out</Button>
    </div>
+
 
   )
 }

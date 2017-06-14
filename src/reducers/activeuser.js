@@ -1,11 +1,8 @@
 const activeUser = (state = null, action) => {
     switch (action.type) {
 
-      case 'ATTEMPT_LOGIN':
-        return {
-          first: action.first,
-          password: action.password,
-        };
+      case 'USER_LOGOUT':
+        return null;
 
       case 'USER_LOGIN':
           return action.user;
