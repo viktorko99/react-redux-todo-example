@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {attemptLogin, userLogin} from '../actions/actions';
-
-import Center from 'react-center';
-import {FormGroup, FormControl, Button} from 'react-bootstrap';
+import LoginForm from '../components/LoginForm';
 
 class Login extends Component {
   constructor() {
@@ -36,33 +34,19 @@ class Login extends Component {
 
   handleLogin() {
     this.props.users.forEach(user => {
-      if((user.first === this.state.userName) && (user.password === this.state.password)) {
+        if((user.first === this.state.userName) && (user.password === this.state.password)) {
           console.log(user);
-         //this.props.userLogin(user);
-      }
-      }
-    )
+           this.props.userLogin(user);
+        }})
   }
 
   render() {
     return (
-      <div>
-        <Center>
-          <h1>Login</h1>
-        </Center>
-
-        <Center>
-          <FormGroup bsSize="large">
-            <FormControl type="text" placeholder="Name" onChange={this.handleUserName}/>
-            <FormControl id="formControlsPassword" label="Password" type="password"  placeholder="Password" onChange={this.handlePassword}/>
-          </FormGroup>
-        </Center>
-
-        <Center>
-          <Button onClick={this.handleLogin}>Login</Button>
-        </Center>
-
-      </div>
+      <LoginForm
+        onLogin={this.handleLogin}
+        onUserNameInputChange={this.handleUserName}
+        onPasswordIntputChange={this.handlePassword}
+      />
     );
   }
 }
