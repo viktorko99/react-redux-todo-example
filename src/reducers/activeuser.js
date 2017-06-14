@@ -11,7 +11,7 @@ const activeUser = (state = null, action) => {
           return action.user;
 
       default:
-        return null;
+        return state;
     }
 }
 

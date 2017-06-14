@@ -53,7 +53,6 @@ class Login extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.users);
   return {
    users: state.users
  };
