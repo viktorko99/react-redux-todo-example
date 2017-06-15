@@ -8,6 +8,7 @@
     "react-scripts": "^1.0.2"
   },
   "dependencies": {
+    "babel-plugin-react-css-modules": "^2.8.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",

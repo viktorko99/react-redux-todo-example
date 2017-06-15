@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
 import WelcomePageComponent from '../components/WelcomePageComponent';
-
-const divStyle = {
-  background: "#eee",
-  padding: "20px",
-  margin: "20px"
-}
+import { Grid, Row, Col } from 'react-bootstrap';
+import Register from '../containers/Register';
 
 class WelcomePage extends Component {
   constructor(props) {
     super(props);
 
       this.handleToLoginAdress = this.handleAdressChange.bind(this, '/login');
-      this.handleToRegisterAdress = this.handleAdressChange.bind(this, '/register');
   }
 
   handleAdressChange(adress) {
@@ -21,11 +16,19 @@ class WelcomePage extends Component {
 
   render() {
     return (
-        <WelcomePageComponent
-          divStyle={divStyle}
-          onToLoginAdress={this.handleToLoginAdress}
-          onToRegisterAdress={this.handleToRegisterAdress}
-        />
+      <Grid style={{background: "#eee"}} fluid={true}>
+      <Row className="show-grid">
+            <Col md={6} mdPush={6}>
+              <Register />
+            </Col>
+
+            <Col md={6} mdPull={6}>
+              <WelcomePageComponent
+                onToLoginAdress={this.handleToLoginAdress}
+              />
+            </Col>
+          </Row>
+        </Grid>
     );
   }
 }
