@@ -31,12 +31,7 @@ export const userLogin = (user) => ({
     user
 })
 
-export const AddUser = (first, last, password, age, description) => ({
-    type: 'USER_LOGIN',
-    id: v4(),
-    first,
-    last,
-    password,
-    age,
-    description,
+export const addUser = (user) => ({
+    type: 'ADD_USER',
+    user
 })

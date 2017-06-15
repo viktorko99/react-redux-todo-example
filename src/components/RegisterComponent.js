@@ -2,7 +2,7 @@ import React from 'react';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 import Center from 'react-center';
 
-export default function RegisterComponent({  onFirstNameAdd, onLastNameAdd, onAgeAdd, onDescriptionAdd, onPasswordAdd}) {
+export default function RegisterComponent({  onFirstNameAdd, onLastNameAdd, onAgeAdd, onDescriptionAdd, onPasswordAdd, onButtonClick}) {
 
   return (
     <div>
@@ -17,7 +17,7 @@ export default function RegisterComponent({  onFirstNameAdd, onLastNameAdd, onAg
       </FormGroup>
 
       <Center>
-        <Button bsStyle="primary" bsSize="large">Register Now!</Button>
+        <Button bsStyle="primary" bsSize="large" onClick={onButtonClick}>Register Now!</Button>
       </Center>
       </div>
   )
