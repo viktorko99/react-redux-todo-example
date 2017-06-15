@@ -19,7 +19,6 @@ class Login extends Component {
   }
 
   handleUserName(event) {
-    console.log(event.target.value);
     this.setState({
       userName: event.target.value
     });

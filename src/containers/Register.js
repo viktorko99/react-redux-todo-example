@@ -75,7 +75,6 @@ class Register extends Component {
   }
 
   handleButtonClick() {
-    console.log(this.state.person);
     this.props.addUser(this.state.person);
   }
 

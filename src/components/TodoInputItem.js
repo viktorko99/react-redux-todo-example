@@ -8,7 +8,7 @@ function TodoInputItem({onAddTodoChange, addTodo, showActive, showCompleted, sho
             <FormControl  onKeyPress={onAddTodoChange} type="text" placeholder="Insert todo here" />
 
             <div>
-              <Radio onChange={showAll} name="radioGroup" inline>
+              <Radio onChange={showAll} name="radioGroup" checked inline>
                 Show All
               </Radio>
               {' '}
