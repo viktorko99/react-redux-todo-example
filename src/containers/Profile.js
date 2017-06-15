@@ -3,16 +3,22 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {userLogout} from '../actions/actions';
 import ProfileComponent from '../components/ProfileComponent';
+import { clearState } from '../localStorage';
 
 class Profile extends Component {
   constructor() {
     super();
 
     this.handleLogout = this.handleLogout.bind(this);
+    this.hadleClearState = this.hadleClearState.bind(this);
   }
 
   handleLogout() {
     this.props.userLogout();
+  }
+
+  hadleClearState() {
+    clearState();
   }
 
   render() {
@@ -20,6 +26,7 @@ class Profile extends Component {
       <ProfileComponent
         user={this.props.user}
         onLogout={this.handleLogout}
+        onClear={this.hadleClearState}
       />
     )
   }

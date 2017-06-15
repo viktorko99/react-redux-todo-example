@@ -18,3 +18,11 @@ export const saveState = (state) => {
    console.log('errrrooooor');
   }
 };
+
+export const clearState = () => {
+  try {
+    localStorage.clear('state');
+  } catch (e) {
+    console.log('errrrooooorS');
+  }
+};
