@@ -12,7 +12,7 @@ function ProfileComponent({ user, onLogout, onClear }){
   if (user === null) {
     return <LoginNotFound />;
   }
-
+  console.log(user);
   return(
     <div style={divStyle}>
       <h1>{user.first} {user.last}</h1>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addTodo, setTodo, showActive, showCompleted, showAll} from '../actions/actions';
+import {addTodo, setTodo, setVisibilityFilter} from '../actions/actions';
 import TodoComponent from '../components/TodoComponent';
 
 class TodoContainer extends Component {
@@ -28,19 +28,7 @@ class TodoContainer extends Component {
   }
 
   handleButtonClick(id) {
-    switch (id) {
-      case 'SHOW_ALL':
-        this.props.showAll();
-        break;
-      case 'SHOW_ACTIVE':
-        this.props.showActive();
-        break;
-      case 'SHOW_COMPLETED':
-        this.props.showCompleted();
-        break;
-      default:
-        this.props.showAll();
-    }
+    this.props.setVisibilityFilter(id);
   }
 
   render() {
@@ -86,9 +74,7 @@ class TodoContainer extends Component {
      return bindActionCreators(
        {addTodo,
         setTodo,
-        showActive,
-        showCompleted,
-        showAll}, dispatch);
+        setVisibilityFilter}, dispatch);
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

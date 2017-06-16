@@ -10,16 +10,8 @@ export const setTodo = (id) => ({
     id
 })
 
-export const showActive = () => ({
-    type: 'SHOW_ACTIVE'
-})
-
-export const showCompleted = () => ({
-    type: 'SHOW_COMPLETED'
-})
-
-export const showAll = () => ({
-    type: 'SHOW_ALL'
+export const setVisibilityFilter = (visibilityFilter) => ({
+    type: visibilityFilter
 })
 
 export const userLogout = () => ({

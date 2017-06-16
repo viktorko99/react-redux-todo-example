@@ -22,6 +22,8 @@ class Profile extends Component {
   }
 
   render() {
+
+
     return (
       <ProfileComponent
         user={this.props.user}
@@ -33,9 +35,16 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-   user: state.activeUser
- };
+  if (state.activeUser === null) {
+    return {
+      user: state.activeUser
+    }
+  } else {
+    return {
+     user: {...state.activeUser,
+            todos: state.todos}
+   };
+  }
 }
 
 function mapDispatchToProps(dispatch) {

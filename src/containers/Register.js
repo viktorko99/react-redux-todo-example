@@ -14,7 +14,8 @@ class Register extends Component {
         last: '',
         age: 0,
         description:'',
-        password: ''
+        password: '',
+        todos: [],
       }
     }
     this.handleFirstNameAdd = this.handleFirstNameAdd.bind(this);
@@ -75,7 +76,12 @@ class Register extends Component {
   }
 
   handleButtonClick() {
-    this.props.addUser(this.state.person);
+    for (var prop in this.state.person) {
+      if (this.state.person[prop] === '') {
+        alert( prop + ' is empty');
+      }
+    }
+      this.props.addUser(this.state.person);
   }
 
   render() {
