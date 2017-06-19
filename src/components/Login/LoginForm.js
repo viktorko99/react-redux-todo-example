@@ -2,7 +2,7 @@ import React from 'react';
 import Center from 'react-center';
 import {FormGroup, FormControl, Button} from 'react-bootstrap';
 
-function LoginForm({onLogin, onUserNameInputChange, onPasswordIntputChange}) {
+function LoginForm({onLogin, onUserNameInputChange, onPasswordIntputChange, onUserInput}) {
   return (
     <div>
       <Center>
@@ -11,8 +11,8 @@ function LoginForm({onLogin, onUserNameInputChange, onPasswordIntputChange}) {
 
       <Center>
         <FormGroup bsSize="large">
-          <FormControl type="text" placeholder="Name" onChange={onUserNameInputChange}/>
-          <FormControl id="formControlsPassword" label="Password" type="password"  placeholder="Password" onChange={onPasswordIntputChange}/>
+          <FormControl type="text" placeholder="Name" id="userName" onChange={onUserInput}/>
+          <FormControl id="password" label="Password" type="password"  placeholder="Password" onChange={onUserInput}/>
         </FormGroup>
       </Center>
 

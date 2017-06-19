@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginNotFound from '../ErrorPages/LoginNotFound';
 import ProfileDescription from './ProfileDescription';
-import ProfileTodo from './ProfileTodo';
+import ProfileTable from './ProfileTable';
 
 function ProfileComponent({ user, onLogout, onClear, onSynchronize }){
 
@@ -18,18 +18,7 @@ function ProfileComponent({ user, onLogout, onClear, onSynchronize }){
         onSynchronize={onSynchronize}
       />
 
-      <ul>
-        {user.todos.map(todo => (
-
-          <ProfileTodo
-            key={todo.id}
-            text={todo.text}
-            completed={todo.completed}
-          />
-         ))}
-      </ul>
-
-
+      <ProfileTable user={user}/>
     </div>
   )
 }

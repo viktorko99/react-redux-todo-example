@@ -14,8 +14,16 @@ class Login extends Component {
     }
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleUserInput = this.handleUserInput.bind(this);
     this.handleUserName = this.handleUserName.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+  }
+
+  handleUserInput(event) {
+   const { id, value } = event.target;
+    this.setState({
+        [id]: value
+    });
   }
 
   handleUserName(event) {
@@ -46,12 +54,14 @@ class Login extends Component {
         onLogin={this.handleLogin}
         onUserNameInputChange={this.handleUserName}
         onPasswordIntputChange={this.handlePassword}
+        onUserInput={this.handleUserInput}
       />
     );
   }
 }
 
 function mapStateToProps(state) {
+  console.log(state.users);
   return {
     users: state.users
   };

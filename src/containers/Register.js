@@ -19,60 +19,16 @@ class Register extends Component {
       }
     }
 
-    this.handleFirstNameAdd = this.handleFirstNameAdd.bind(this);
-    this.handleLastNameAdd = this.handleLastNameAdd.bind(this);
-    this.handleAgeAdd = this.handleAgeAdd.bind(this);
-    this.handleDescriptionAdd = this.handleDescriptionAdd.bind(this);
-    this.handlePaswordAdd = this.handlePaswordAdd.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleAddUser = this.handleAddUser.bind(this);
   }
 
-  handleFirstNameAdd(event) {
+  handleAddUser(event) {
+    const { id, value } = event.target;
     this.setState({
      person: {
         ...this.state.person,
-        first: event.target.value
-      }
-    });
-  }
-
-  handleLastNameAdd(event) {
-    this.setState({
-      person: {
-        ...this.state.person,
-        last: event.target.value
-      }
-    });
-  }
-
-  handleAgeAdd(event) {
-    if (isNaN(event.target.value)) {
-      alert("Age must be a number");
-      event.target.value = null
-    } else {
-        this.setState({
-          person: {
-            ...this.state.person,
-            age: event.target.value
-          }
-        });
-    }
-  }
-
-  handleDescriptionAdd(event) {
-    this.setState({
-      person: {
-        ...this.state.person,
-        description: event.target.value
-      }
-    });
-  }
-
-  handlePaswordAdd(event) {
-    this.setState({
-      person: {
-        ...this.state.person,
-        password: event.target.value
+        [id]: value
       }
     });
   }
@@ -98,6 +54,7 @@ class Register extends Component {
         onDescriptionAdd={this.handleDescriptionAdd}
         onPasswordAdd={this.handlePaswordAdd}
         onButtonClick={this.handleButtonClick}
+        onUserAdd={this.handleAddUser}
       />
     )
   }
