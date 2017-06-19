@@ -1,29 +1,36 @@
 import React from 'react';
 import LoginNotFound from './LoginNotFound';
-import { Button } from 'react-bootstrap';
+import ProfileDescription from './ProfileDescription';
+import ProfileTodo from './ProfileTodo';
 
-function ProfileComponent({ user, onLogout, onClear }){
-  const divStyle = {
-    background: "#eee",
-    padding: "20px",
-    margin: "20px"
-  };
+function ProfileComponent({ user, onLogout, onClear, onSynchronize }){
 
   if (user === null) {
     return <LoginNotFound />;
   }
   console.log(user);
   return(
-    <div style={divStyle}>
-      <h1>{user.first} {user.last}</h1>
-      <h4>Description: {user.description}</h4>
-      <p>Age: {user.age}</p>
-      <Button onClick={onLogout} bsStyle="danger">Log Out</Button>
-      {' '}
-      {(user.first === 'admin') && <Button onClick={onClear} bsStyle="warning">HACK</Button> }
-   </div>
+    <div>
+      <ProfileDescription
+        user={user}
+        onLogout={onLogout}
+        onClear={onClear}
+        onSynchronize={onSynchronize}
+      />
+
+      <ul>
+        {user.todos.map(todo => (
+
+          <ProfileTodo
+            key={todo.id}
+            text={todo.text}
+            completed={todo.completed}
+          />
+         ))}
+      </ul>
 
 
+    </div>
   )
 }
 
