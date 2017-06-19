@@ -25,7 +25,8 @@ export const userLogin = (user) => ({
 
 export const addUser = (user) => ({
     type: 'ADD_USER',
-    user
+    user,
+    id: v4(),
 })
 
 export const addNewTodo = (text, user) => ({
@@ -33,4 +34,9 @@ export const addNewTodo = (text, user) => ({
     user,
     text,
     id: v4(),
+})
+
+export const updateUser = (user) => ({
+    type: 'UPDATE_USER',
+    user
 })

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {userLogout, userLogin} from '../actions/actions';
+import {userLogout, userLogin, updateUser} from '../actions/actions';
 import ProfileComponent from '../components/ProfileComponent';
 import { clearState } from '../localStorage';
 
@@ -19,7 +19,7 @@ class Profile extends Component {
   }
 
   handleSynchronize() {
-    this.props.userLogin(this.props.user);
+    this.props.updateUser(this.props.user);
   }
 
   hadleClearState() {
@@ -39,22 +39,16 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state) {
-  if (state.activeUser === null) {
-    return {
-      user: state.activeUser
-    }
-  } else {
-      return {
-       user: {...state.activeUser,
-              todos: [...state.activeUser.todos, ...state.todos]}
-     };
+  return {
+    user: state.activeUser
   }
 }
 
 function mapDispatchToProps(dispatch) {
    return bindActionCreators(
      {userLogout,
-     userLogin}, dispatch);
+     userLogin,
+     updateUser}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
