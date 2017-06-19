@@ -29,19 +29,7 @@ export const addUser = (user) => ({
     id: v4(),
 })
 
-export const addNewTodo = (text, user) => ({
-    type: 'ADD_NEWTODO',
-    user,
-    text,
-    id: v4(),
-})
-
 export const updateUser = (user) => ({
     type: 'UPDATE_USER',
     user
-})
-
-export const setActualTodo = (id) => ({
-    type: 'SET_ACTUALTODO',
-    id,
 })

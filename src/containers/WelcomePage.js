@@ -17,18 +17,20 @@ class WelcomePage extends Component {
   render() {
     return (
       <Grid style={{background: "#eee"}} fluid={true}>
-      <Row className="show-grid">
-            <Col md={6} mdPush={6}>
-              <Register />
-            </Col>
+        <Row className="show-grid">
 
-            <Col md={6} mdPull={6}>
-              <WelcomePageComponent
-                onToLoginAdress={this.handleToLoginAdress}
-              />
-            </Col>
-          </Row>
-        </Grid>
+          <Col md={6} mdPush={6}>
+            <Register />
+          </Col>
+
+          <Col md={6} mdPull={6}>
+            <WelcomePageComponent
+              onToLoginAdress={this.handleToLoginAdress}
+            />
+          </Col>
+
+        </Row>
+      </Grid>
     );
   }
 }

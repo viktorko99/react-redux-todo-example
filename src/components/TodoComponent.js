@@ -18,7 +18,6 @@ function TodoComponent({todos, addTodo, onActualTodoChange, onAddTodoChange, sho
       </Center>
       <ul>
         {todos.map(todo => (
-
           <TodoListItem
             key={todo.id}
             text={todo.text}

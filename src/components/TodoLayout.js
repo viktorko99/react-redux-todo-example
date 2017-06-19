@@ -3,7 +3,7 @@ import TodoContainer from '../containers/TodoContainer';
 import {PageHeader} from 'react-bootstrap';
 import Center from 'react-center';
 
-const App = () => (
+const TodoLayout = () => (
   <div>
     <Center>
      <PageHeader>Todo List</PageHeader>
@@ -12,4 +12,4 @@ const App = () => (
   </div>
 )
 
-export default App
+export default TodoLayout

@@ -7,11 +7,11 @@ const activeUser = (state = null, action) => {
       case 'USER_LOGIN':
           return action.user;
 
-      case 'ADD_NEWTODO':
+      case 'ADD_TODO':
           return {
-                   ...action.user,
+                   ...state,
                    todos: [
-                   ...action.user.todos,
+                   ...state.todos,
                    {
                      text: action.text,
                      id: action.id,
@@ -19,7 +19,7 @@ const activeUser = (state = null, action) => {
                    }
                 ]}
 
-      case 'SET_ACTUALTODO':
+      case 'SET_TODO':
         return {
                 ...state,
                 todos: state.todos.map(todo =>

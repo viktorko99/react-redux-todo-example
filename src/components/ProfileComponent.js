@@ -8,7 +8,7 @@ function ProfileComponent({ user, onLogout, onClear, onSynchronize }){
   if (user === null) {
     return <LoginNotFound />;
   }
-  console.log(user);
+
   return(
     <div>
       <ProfileDescription

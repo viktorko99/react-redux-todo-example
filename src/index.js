@@ -15,7 +15,6 @@ const store = createStore(reducer, persistedState);
 store.subscribe(() => {
   saveState({
     users: store.getState().users,
-    //todos: store.getState().todos,
     activeUser: store.getState().activeUser
   });
 });

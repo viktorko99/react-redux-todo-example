@@ -16,7 +16,8 @@ function ProfileDescription({ user, onLogout, onClear, onSynchronize }){
       <p>Age: {user.age}</p>
       <Button onClick={onLogout} bsStyle="danger">Log Out</Button>
       {' '}
-      {(user.first === 'admin') && <Button onClick={onClear} bsStyle="warning">HACK</Button> }
+      {(user.first === 'admin') && <Button onClick={onClear} bsStyle="warning">HACK</Button>}
+      {' '}
       <Button onClick={onSynchronize} bsStyle="success">Synchronize Todos</Button>
 
    </div>

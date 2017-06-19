@@ -48,12 +48,12 @@ class Register extends Component {
       alert("Age must be a number");
       event.target.value = null
     } else {
-      this.setState({
-        person: {
-          ...this.state.person,
-          age: event.target.value
-        }
-      });
+        this.setState({
+          person: {
+            ...this.state.person,
+            age: event.target.value
+          }
+        });
     }
   }
 
@@ -76,12 +76,15 @@ class Register extends Component {
   }
 
   handleButtonClick() {
-    for (var prop in this.state.person) {
-      if (this.state.person[prop] === '') {
-        alert( prop + ' is empty');
-      }
-    }
+    if ((this.state.person.first !== '') && (this.state.person.last !== '') && (this.state.person.password !== '') ) {
       this.props.addUser(this.state.person);
+    } else {
+        for (var prop in this.state.person) {
+          if (this.state.person[prop] === '') {
+            alert( prop + ' is empty');
+          }
+        }
+      }
   }
 
   render() {
@@ -99,10 +102,9 @@ class Register extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.users);
   return {
    users: state.users
- };
+  };
 }
 
 function mapDispatchToProps(dispatch) {

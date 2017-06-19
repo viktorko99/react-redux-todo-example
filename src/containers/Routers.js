@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
-import App from '../components/App';
+import TodoLayout from '../components/TodoLayout';
 import NotFound from '../components/NotFound';
 import WelcomePage from '../containers/WelcomePage';
 import Login from '../containers/Login';
@@ -28,7 +28,7 @@ class Routers extends Component {
 
         <Switch>
           <Route path='/' exact component={WelcomePage}/>
-          <Route path='/todo' component={App}/>
+          <Route path='/todo' component={TodoLayout}/>
           <Route path='/login' component={Login}/>
           <Route path='/profile' component={Profile}/>
           <Route path='/register' component={Register}/>

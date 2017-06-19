@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addNewTodo, setActualTodo, setVisibilityFilter} from '../actions/actions';
+import {addTodo, setTodo, setVisibilityFilter} from '../actions/actions';
 import TodoComponent from '../components/TodoComponent';
 import LoginNotFound from '../components/LoginNotFound';
 
@@ -19,14 +19,14 @@ class TodoContainer extends Component {
   handleAddTodoChange(event) {
      if (event.key === 'Enter') {
      console.log('do validate');
-     this.props.addNewTodo(event.target.value, this.props.user);
+     this.props.addTodo(event.target.value);
      event.target.value = '';
    }
   }
 
   handleActualTodoChange(todoID) {
     console.log(todoID);
-    this.props.setActualTodo(todoID)
+    this.props.setTodo(todoID)
   }
 
   handleButtonClick(id) {
@@ -76,16 +76,16 @@ class TodoContainer extends Component {
        user: state.activeUser
      };
     }
-    return {
-     todos: handleVisibiltyfilter(state.activeUser.todos, state.visibilityFilter),
-     user: state.activeUser
-   };
+      return {
+       todos: handleVisibiltyfilter(state.activeUser.todos, state.visibilityFilter),
+       user: state.activeUser
+     };
   }
 
   function mapDispatchToProps(dispatch) {
      return bindActionCreators(
-       {addNewTodo,
-        setActualTodo,
+       {addTodo,
+        setTodo,
         setVisibilityFilter}, dispatch);
   }
 
