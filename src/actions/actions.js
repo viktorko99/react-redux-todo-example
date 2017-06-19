@@ -7,7 +7,7 @@ export const addTodo = (text) => ({
 
 export const setTodo = (id) => ({
     type: 'SET_TODO',
-    id
+    id,
 })
 
 export const setVisibilityFilter = (visibilityFilter) => ({
@@ -39,4 +39,9 @@ export const addNewTodo = (text, user) => ({
 export const updateUser = (user) => ({
     type: 'UPDATE_USER',
     user
+})
+
+export const setActualTodo = (id) => ({
+    type: 'SET_ACTUALTODO',
+    id,
 })

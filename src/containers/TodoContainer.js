@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addNewTodo, setTodo, setVisibilityFilter} from '../actions/actions';
+import {addNewTodo, setActualTodo, setVisibilityFilter} from '../actions/actions';
 import TodoComponent from '../components/TodoComponent';
+import LoginNotFound from '../components/LoginNotFound';
 
 class TodoContainer extends Component {
   constructor() {
@@ -24,7 +25,8 @@ class TodoContainer extends Component {
   }
 
   handleActualTodoChange(todoID) {
-    this.props.setTodo(todoID)
+    console.log(todoID);
+    this.props.setActualTodo(todoID)
   }
 
   handleButtonClick(id) {
@@ -32,6 +34,10 @@ class TodoContainer extends Component {
   }
 
   render() {
+    if (this.props.user === null) {
+      return <LoginNotFound />;
+    }
+
     return (
       <div>
          <TodoComponent
@@ -64,8 +70,12 @@ class TodoContainer extends Component {
 }
 
   function mapStateToProps(state) {
-    console.log(state.visibilityFilter);
-    console.log(state.activeUser);
+    if (state.activeUser === null) {
+      return {
+       todos: [],
+       user: state.activeUser
+     };
+    }
     return {
      todos: handleVisibiltyfilter(state.activeUser.todos, state.visibilityFilter),
      user: state.activeUser
@@ -75,7 +85,7 @@ class TodoContainer extends Component {
   function mapDispatchToProps(dispatch) {
      return bindActionCreators(
        {addNewTodo,
-        setTodo,
+        setActualTodo,
         setVisibilityFilter}, dispatch);
   }
 
