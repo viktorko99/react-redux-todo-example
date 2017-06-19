@@ -7,6 +7,17 @@ const activeUser = (state = null, action) => {
       case 'USER_LOGIN':
           return action.user;
 
+          case 'ADD_NEWTODO':
+              return {
+                       ...action.user,
+                       todos: [
+                       ...action.user.todos,
+                       {
+                         text: action.text,
+                         id: action.id,
+                         completed: false
+                       }
+                    ]}
       default:
         return state;
     }

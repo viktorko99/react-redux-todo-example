@@ -27,3 +27,10 @@ export const addUser = (user) => ({
     type: 'ADD_USER',
     user
 })
+
+export const addNewTodo = (text, user) => ({
+    type: 'ADD_NEWTODO',
+    user,
+    text,
+    id: v4(),
+})
