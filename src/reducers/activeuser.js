@@ -9,25 +9,26 @@ const activeUser = (state = null, action) => {
 
       case 'ADD_TODO':
           return {
-                   ...state,
-                   todos: [
-                   ...state.todos,
-                   {
-                     text: action.text,
-                     id: action.id,
-                     completed: false
-                   }
-                ]}
+            ...state,
+            todos: [
+              ...state.todos,
+              {
+                text: action.text,
+                id: action.id,
+                completed: false
+              }
+            ]
+          };
 
       case 'SET_TODO':
         return {
-                ...state,
-                todos: state.todos.map(todo =>
-                    (todo.id === action.id)
-                    ? {...todo, completed: !todo.completed}
-                    : todo
-                    )
-        }
+          ...state,
+          todos: state.todos.map(todo =>
+            (todo.id === action.id)
+              ? {...todo, completed: !todo.completed}
+              : todo
+          )
+        };
 
       default:
         return state;

@@ -22,7 +22,7 @@ store.subscribe(() => {
 render(
   <Provider store={store}>
     <Router>
-      <Routers/>
+      <Routers />
     </Router>
   </Provider>,
   document.getElementById('root')

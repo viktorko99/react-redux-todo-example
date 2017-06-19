@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginNotFound from './LoginNotFound';
+import LoginNotFound from '../ErrorPages/LoginNotFound';
 import ProfileDescription from './ProfileDescription';
 import ProfileTodo from './ProfileTodo';
 

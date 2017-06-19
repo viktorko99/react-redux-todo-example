@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {addUser} from '../actions/actions';
-import RegisterComponent from '../components/RegisterComponent';
+import RegisterComponent from '../components/Register/RegisterComponent';
 
 class Register extends Component {
   constructor() {
@@ -18,6 +18,7 @@ class Register extends Component {
         todos: [],
       }
     }
+
     this.handleFirstNameAdd = this.handleFirstNameAdd.bind(this);
     this.handleLastNameAdd = this.handleLastNameAdd.bind(this);
     this.handleAgeAdd = this.handleAgeAdd.bind(this);
@@ -28,12 +29,13 @@ class Register extends Component {
 
   handleFirstNameAdd(event) {
     this.setState({
-      person: {
+     person: {
         ...this.state.person,
         first: event.target.value
       }
     });
   }
+
   handleLastNameAdd(event) {
     this.setState({
       person: {

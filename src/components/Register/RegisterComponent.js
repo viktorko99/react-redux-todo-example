@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormGroup, FormControl, Button} from 'react-bootstrap';
 import Center from 'react-center';
-import '../styles/styles.css';
-import {inputStyle} from '../styles/styles';
+import '../../styles/styles.css';
+import {inputStyle} from '../../styles/styles';
 
 export default function RegisterComponent({  onFirstNameAdd, onLastNameAdd, onAgeAdd, onDescriptionAdd, onPasswordAdd, onButtonClick}) {
 

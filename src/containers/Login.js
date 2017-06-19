@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/actions';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/Login/LoginForm';
 
 class Login extends Component {
   constructor() {
@@ -33,11 +33,11 @@ class Login extends Component {
 
   handleLogin() {
     this.props.users.forEach(user => {
-        if((user.first === this.state.userName) && (user.password === this.state.password)) {
-          console.log(user);
-           this.props.userLogin(user);
-           this.props.history.push('/profile');
-        }})
+      if((user.first === this.state.userName) && (user.password === this.state.password)) {
+        console.log(user);
+        this.props.userLogin(user);
+        this.props.history.push('/profile');
+    }})
   }
 
   render() {
@@ -53,13 +53,12 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-   users: state.users
- };
+    users: state.users
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-   return bindActionCreators(
-     {userLogin}, dispatch);
+  return bindActionCreators({userLogin}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

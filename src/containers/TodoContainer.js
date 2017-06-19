@@ -2,26 +2,26 @@ import React, {Component} from 'react'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {addTodo, setTodo, setVisibilityFilter} from '../actions/actions';
-import TodoComponent from '../components/TodoComponent';
-import LoginNotFound from '../components/LoginNotFound';
+import TodoComponent from '../components/Todo/TodoComponent';
+import LoginNotFound from '../components/ErrorPages/LoginNotFound';
 
 class TodoContainer extends Component {
   constructor() {
     super();
 
-      this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
-      this.handleAddTodoChange = this.handleAddTodoChange.bind(this);
-      this.handleShowAllClick = this.handleButtonClick.bind(this, 'SHOW_ALL');
-      this.handleShowActiveClick = this.handleButtonClick.bind(this, 'SHOW_ACTIVE');
-      this.handleShowCompletedClick = this.handleButtonClick.bind(this, 'SHOW_COMPLETED');
+    this.handleActualTodoChange = this.handleActualTodoChange.bind(this);
+    this.handleAddTodoChange = this.handleAddTodoChange.bind(this);
+    this.handleShowAllClick = this.handleButtonClick.bind(this, 'SHOW_ALL');
+    this.handleShowActiveClick = this.handleButtonClick.bind(this, 'SHOW_ACTIVE');
+    this.handleShowCompletedClick = this.handleButtonClick.bind(this, 'SHOW_COMPLETED');
   }
 
   handleAddTodoChange(event) {
-     if (event.key === 'Enter') {
-     console.log('do validate');
-     this.props.addTodo(event.target.value);
-     event.target.value = '';
-   }
+    if (event.key === 'Enter') {
+      console.log('do validate');
+      this.props.addTodo(event.target.value);
+      event.target.value = '';
+    }
   }
 
   handleActualTodoChange(todoID) {
@@ -53,7 +53,7 @@ class TodoContainer extends Component {
   }
 }
 
- const handleVisibiltyfilter = (todos, filter) => {
+const handleVisibiltyfilter = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ACTIVE':
       return todos.filter(todo => !todo.completed);
@@ -69,24 +69,25 @@ class TodoContainer extends Component {
   }
 }
 
-  function mapStateToProps(state) {
-    if (state.activeUser === null) {
-      return {
-       todos: [],
-       user: state.activeUser
-     };
-    }
-      return {
-       todos: handleVisibiltyfilter(state.activeUser.todos, state.visibilityFilter),
-       user: state.activeUser
-     };
+function mapStateToProps(state) {
+  if (state.activeUser === null) {
+    return {
+      todos: [],
+      user: state.activeUser
+    };
+  }
+    return {
+      todos: handleVisibiltyfilter(state.activeUser.todos, state.visibilityFilter),
+      user: state.activeUser
+    };
   }
 
   function mapDispatchToProps(dispatch) {
-     return bindActionCreators(
-       {addTodo,
-        setTodo,
-        setVisibilityFilter}, dispatch);
+    return bindActionCreators({
+      addTodo,
+      setTodo,
+      setVisibilityFilter
+    }, dispatch);
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

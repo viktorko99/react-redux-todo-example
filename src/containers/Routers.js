@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
-import TodoLayout from '../components/TodoLayout';
-import NotFound from '../components/NotFound';
+import TodoLayout from '../components/Todo/TodoLayout';
+import NotFound from '../components/ErrorPages/NotFound';
 import WelcomePage from '../containers/WelcomePage';
 import Login from '../containers/Login';
 import Profile from '../containers/Profile';
 import Register from './Register';
-
-
 
 class Routers extends Component {
   render() {

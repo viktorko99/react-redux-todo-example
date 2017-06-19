@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {userLogout, userLogin, updateUser} from '../actions/actions';
-import ProfileComponent from '../components/ProfileComponent';
+import ProfileComponent from '../components/Profile/ProfileComponent';
 import { clearState } from '../localStorage';
 
 class Profile extends Component {
@@ -45,10 +45,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-   return bindActionCreators(
-     {userLogout,
+   return bindActionCreators({
+     userLogout,
      userLogin,
-     updateUser}, dispatch);
+     updateUser
+   }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

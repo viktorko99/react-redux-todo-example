@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import WelcomePageComponent from '../components/WelcomePageComponent';
+import WelcomePageComponent from '../components/WelcomePage/WelcomePageComponent';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Register from '../containers/Register';
 
@@ -7,7 +7,7 @@ class WelcomePage extends Component {
   constructor(props) {
     super(props);
 
-      this.handleToLoginAdress = this.handleAdressChange.bind(this, '/login');
+    this.handleToLoginAdress = this.handleAdressChange.bind(this, '/login');
   }
 
   handleAdressChange(adress) {
