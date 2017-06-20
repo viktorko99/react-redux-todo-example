@@ -44,7 +44,7 @@ class Register extends Component {
         }
       }
       this.props.userLogin(this.state.person);
-      this.props.history.push('/profile');
+      //this.props.history.push('/profile');
   }
 
   render() {
