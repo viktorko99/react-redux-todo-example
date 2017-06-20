@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addUser} from '../actions/actions';
+import {addUser, userLogin} from '../actions/actions';
 import RegisterComponent from '../components/Register/RegisterComponent';
 
 class Register extends Component {
@@ -43,6 +43,8 @@ class Register extends Component {
           }
         }
       }
+      this.props.userLogin(this.state.person);
+      this.props.history.push('/profile');
   }
 
   render() {
@@ -68,7 +70,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
    return bindActionCreators(
-     {addUser}, dispatch);
+     {addUser,
+     userLogin}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

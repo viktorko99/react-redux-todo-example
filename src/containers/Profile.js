@@ -12,6 +12,11 @@ class Profile extends Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.hadleClearState = this.hadleClearState.bind(this);
     this.handleSynchronize = this.handleSynchronize.bind(this);
+    this.handleTodoRedirect = this.handleTodoRedirect.bind(this);
+  }
+
+  handleTodoRedirect() {
+    this.props.history.push('/todo');
   }
 
   handleLogout() {
@@ -33,6 +38,7 @@ class Profile extends Component {
         onLogout={this.handleLogout}
         onClear={this.hadleClearState}
         onSynchronize={this.handleSynchronize}
+        onTodoRedirect={this.handleTodoRedirect}
       />
     )
   }

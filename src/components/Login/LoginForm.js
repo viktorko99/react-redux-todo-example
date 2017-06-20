@@ -1,6 +1,8 @@
 import React from 'react';
 import Center from 'react-center';
+import { Link } from 'react-router-dom';
 import {FormGroup, FormControl, Button} from 'react-bootstrap';
+import { inputStyle } from '../../styles/styles';
 
 function LoginForm({onLogin, onUserNameInputChange, onPasswordIntputChange, onUserInput}) {
   return (
@@ -11,13 +13,14 @@ function LoginForm({onLogin, onUserNameInputChange, onPasswordIntputChange, onUs
 
       <Center>
         <FormGroup bsSize="large">
-          <FormControl type="text" placeholder="Name" id="userName" onChange={onUserInput}/>
-          <FormControl id="password" label="Password" type="password"  placeholder="Password" onChange={onUserInput}/>
+          <FormControl type="text" placeholder="Name" id="userName" onChange={onUserInput} style={inputStyle}/>
+          <FormControl id="password" label="Password" type="password"  placeholder="Password" onChange={onUserInput} style={inputStyle}/>
+          <Center><Link to='/register'>Not Registered? Register Here.</Link></Center>
         </FormGroup>
       </Center>
 
       <Center>
-        <Button onClick={onLogin}>Log In</Button>
+        <Button onClick={onLogin} style={inputStyle}>Log In</Button>
       </Center>
     </div>
   );

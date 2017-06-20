@@ -9,17 +9,17 @@ export default function RegisterComponent({  onFirstNameAdd, onLastNameAdd, onAg
   return (
     <div>
       <Center><h1>Register</h1></Center>
-
+<Center>
       <FormGroup bsSize="large">
           <Center>
           <FormControl style={inputStyle} type="text" placeholder="First Name" id="first" onChange={onUserAdd} required/>
-          <FormControl style={inputStyle} type="text" placeholder="Last Name" id="last" onChange={onUserAdd} required/>
+          <FormControl type="text" placeholder="Last Name" id="last" onChange={onUserAdd} required/>
           </Center>
           <FormControl style={inputStyle} className="inputt" type="text" placeholder="Age" id="age" onChange={onUserAdd} required/>
           <FormControl style={inputStyle} id="password" type="password"  placeholder="Password" onChange={onUserAdd} required/>
           <FormControl style={inputStyle} type="text" placeholder="Description" id="description" onChange={onUserAdd}/>
       </FormGroup>
-
+</Center>
       <h1 className="text">Hello</h1>
 
         <Center>

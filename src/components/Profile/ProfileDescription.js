@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-function ProfileDescription({ user, onLogout, onClear, onSynchronize }){
+function ProfileDescription({ user, onLogout, onClear, onSynchronize, onTodoRedirect }){
   const divStyle = {
     background: "#eee",
     padding: "20px",
@@ -19,6 +19,8 @@ function ProfileDescription({ user, onLogout, onClear, onSynchronize }){
       {(user.first === 'admin') && <Button onClick={onClear} bsStyle="warning">HACK</Button>}
       {' '}
       <Button onClick={onSynchronize} bsStyle="success">Synchronize Todos</Button>
+      {' '}
+      <Button onClick={onTodoRedirect}>Todos</Button>
 
    </div>
   )

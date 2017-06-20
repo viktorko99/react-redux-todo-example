@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import WelcomePageComponent from '../components/WelcomePage/WelcomePageComponent';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Register from '../containers/Register';
@@ -7,11 +8,15 @@ class WelcomePage extends Component {
   constructor(props) {
     super(props);
 
-    this.handleToLoginAdress = this.handleAdressChange.bind(this, '/login');
+    this.handleAdressChange = this.handleAdressChange.bind(this);
   }
 
-  handleAdressChange(adress) {
-    this.props.history.push(adress);
+  handleAdressChange() {
+    if (this.props.user === null) {
+      this.props.history.push('/login');
+    } else {
+      this.props.history.push('/profile');
+    }
   }
 
   render() {
@@ -25,7 +30,7 @@ class WelcomePage extends Component {
 
           <Col md={6} mdPull={6}>
             <WelcomePageComponent
-              onToLoginAdress={this.handleToLoginAdress}
+              onToLoginAdress={this.handleAdressChange}
             />
           </Col>
 
@@ -35,4 +40,10 @@ class WelcomePage extends Component {
   }
 }
 
-export default WelcomePage;
+function mapStateToProps(state) {
+  return {
+    user: state.activeUser
+  };
+}
+
+export default connect(mapStateToProps)(WelcomePage);
