@@ -5,26 +5,37 @@ import '../../styles/styles.css';
 import {inputStyle} from '../../styles/styles';
 
 export default function RegisterComponent({  onFirstNameAdd, onLastNameAdd, onAgeAdd, onDescriptionAdd, onPasswordAdd, onButtonClick, onUserAdd }) {
+  const divStyle = {
+    margin: 'auto',
+  }
 
-  return (
-    <div>
-      <Center><h1>Register</h1></Center>
-<Center>
-      <FormGroup bsSize="large">
-          <Center>
-          <FormControl style={inputStyle} type="text" placeholder="First Name" id="first" onChange={onUserAdd} required/>
+return (
+  <div>
+      <Center>
+          <h1>Register</h1>
+      </Center>
+
+      <FormGroup bsSize="large" className="col-md-6 col-md-offset-3">
+
+          <FormControl type="text" placeholder="First Name" id="first" onChange={onUserAdd} required/>
           <FormControl type="text" placeholder="Last Name" id="last" onChange={onUserAdd} required/>
-          </Center>
-          <FormControl style={inputStyle} className="inputt" type="text" placeholder="Age" id="age" onChange={onUserAdd} required/>
-          <FormControl style={inputStyle} id="password" type="password"  placeholder="Password" onChange={onUserAdd} required/>
-          <FormControl style={inputStyle} type="text" placeholder="Description" id="description" onChange={onUserAdd}/>
-      </FormGroup>
-</Center>
-      <h1 className="text">Hello</h1>
+          <FormControl type="text" placeholder="Description" id="description" onChange={onUserAdd}/>
 
-        <Center>
-          <Button bsStyle="primary" bsSize="large" onClick={onButtonClick}>Register Now!</Button>
-        </Center>
-      </div>
-  )
+          <div className="form-group row">
+              <div className="col-xs-4">
+                  <FormControl className="inputt" type="text" placeholder="Age" id="age" onChange={onUserAdd} required/>
+              </div>
+
+              <div className="col-xs-8">
+                  <FormControl id="password" type="password" placeholder="Password" onChange={onUserAdd} required/>
+              </div>
+          </div>
+
+          <Center>
+              <Button bsStyle="primary" bsSize="large" onClick={onButtonClick}>Register Now!</Button>
+          </Center>
+
+      </FormGroup>
+  </div>
+ )
 }
