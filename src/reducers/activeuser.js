@@ -1,38 +1,38 @@
 const activeUser = (state = null, action) => {
-    switch (action.type) {
+  switch (action.type) {
+    case "USER_LOGOUT":
+      return null;
 
-      case 'USER_LOGOUT':
-        return null;
+    case "USER_LOGIN":
+      return action.user;
 
-      case 'USER_LOGIN':
-          return action.user;
+    case "ADD_TODO":
+      return {
+        ...state,
+        todos: [
+          ...state.todos,
+          {
+            text: action.text,
+            id: action.id,
+            completed: false
+          }
+        ]
+      };
 
-      case 'ADD_TODO':
-          return {
-            ...state,
-            todos: [
-              ...state.todos,
-              {
-                text: action.text,
-                id: action.id,
-                completed: false
-              }
-            ]
-          };
-
-      case 'SET_TODO':
-        return {
-          ...state,
-          todos: state.todos.map(todo =>
-            (todo.id === action.id)
-              ? {...todo, completed: !todo.completed}
+    case "SET_TODO":
+      return {
+        ...state,
+        todos: state.todos.map(
+          todo =>
+            todo.id === action.id
+              ? { ...todo, completed: !todo.completed }
               : todo
-          )
-        };
+        )
+      };
 
-      default:
-        return state;
-    }
-}
+    default:
+      return state;
+  }
+};
 
 export default activeUser;
