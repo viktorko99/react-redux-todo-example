@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import WelcomePageComponent from '../components/WelcomePage/WelcomePageComponent';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Register from '../containers/Register';
@@ -19,12 +20,16 @@ class WelcomePage extends Component {
     }
   }
 
+  componentWillMount() {
+    console.log("WELCOME ---------- " + this.props);
+  }
+
   render() {
     return (
       <Grid style={{background: "#eee"}} fluid={true}>
         <Row className="show-grid">
         	<Col md={6} mdPush={6}>
-              <Register />
+              <Register onAdressChange={this.handleAdressChange}/>
           </Col>
 
           <Col md={6} mdPull={6}>
@@ -45,4 +50,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(WelcomePage);
+export default withRouter(connect(mapStateToProps)(WelcomePage));

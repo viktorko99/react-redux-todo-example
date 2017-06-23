@@ -5,8 +5,8 @@ import {addUser, userLogin} from '../actions/actions';
 import RegisterComponent from '../components/Register/RegisterComponent';
 
 class Register extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       person: {
@@ -34,17 +34,15 @@ class Register extends Component {
   }
 
   handleButtonClick() {
-    if ((this.state.person.first !== '') && (this.state.person.last !== '') && (this.state.person.password !== '') ) {
-      this.props.addUser(this.state.person);
+    this.props.addUser(this.state.person);
+
+    this.props.userLogin(this.state.person);
+
+    if (!this.props.history) {
+      this.props.onAdressChange();
     } else {
-        for (var prop in this.state.person) {
-          if (this.state.person[prop] === '') {
-            alert( prop + ' is empty');
-          }
-        }
-      }
-      this.props.userLogin(this.state.person);
-      //this.props.history.push('/profile');
+      this.props.history.push('/profile');
+    }
   }
 
   render() {

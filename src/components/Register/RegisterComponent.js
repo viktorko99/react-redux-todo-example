@@ -2,12 +2,9 @@ import React from 'react';
 import { FormGroup, FormControl, Button} from 'react-bootstrap';
 import Center from 'react-center';
 import '../../styles/styles.css';
-import {inputStyle} from '../../styles/styles';
+import {divStyle} from '../../styles/styles';
 
 export default function RegisterComponent({  onFirstNameAdd, onLastNameAdd, onAgeAdd, onDescriptionAdd, onPasswordAdd, onButtonClick, onUserAdd }) {
-  const divStyle = {
-    margin: '5px 0px 5px 0px',
-  }
 
 return (
   <div>
