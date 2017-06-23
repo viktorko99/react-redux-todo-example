@@ -2,14 +2,14 @@ import React from 'react';
 import ProfileTodo from './ProfileTodo';
 import { Grid, Row, Col, Panel , FormGroup, FormControl } from 'react-bootstrap';
 
-function ProfileTable({user}) {
+function ProfileTable({ todos, onSynchronize, memos }) {
   return (
     <Grid>
       <Row className="show-grid">
 
-        <Col sm={6} md={3}>
+        <Col sm={6} md={4}>
           <Panel collapsible defaultExpanded header="Active Todos">
-            {user.todos.map(todo => (
+            {todos.map(todo => (
               <ProfileTodo
                 key={todo.id}
                 text={todo.text}
@@ -19,9 +19,9 @@ function ProfileTable({user}) {
           </Panel>
         </Col>
 
-        <Col sm={6} md={3}>
+        <Col sm={6} md={8}>
           <FormGroup controlId="formControlsTextarea">
-            <FormControl componentClass="textarea" placeholder="Place for memos.." />
+            <FormControl componentClass="textarea"  rows="17" value={memos} onChange={onSynchronize} />
           </FormGroup>
         </Col>
 

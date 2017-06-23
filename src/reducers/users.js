@@ -12,7 +12,7 @@ const users = (state = [], action) => {
        case 'UPDATE_USER':
         return state.map(user =>
            (user.id === action.user.id)
-           ? {...user, todos: action.user.todos}
+           ? {...user, todos: action.user.todos, memos: action.user.memos}
            : user
          )
 

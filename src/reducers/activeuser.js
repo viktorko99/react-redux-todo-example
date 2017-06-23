@@ -30,6 +30,12 @@ const activeUser = (state = null, action) => {
         )
       };
 
+      case "ADD_MEMO":
+        return {
+          ...state,
+          memos: action.memos
+        };
+
     default:
       return state;
   }

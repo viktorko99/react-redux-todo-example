@@ -3,7 +3,7 @@ import LoginNotFound from '../ErrorPages/LoginNotFound';
 import ProfileDescription from './ProfileDescription';
 import ProfileTable from './ProfileTable';
 
-function ProfileComponent({ user, onLogout, onClear, onSynchronize, onTodoRedirect }){
+function ProfileComponent({ user, onLogout, onClear, onSynchronize, onTodoRedirect, memos, onMemoAdd }){
 
   if (user === null) {
     return <LoginNotFound />;
@@ -15,11 +15,15 @@ function ProfileComponent({ user, onLogout, onClear, onSynchronize, onTodoRedire
         user={user}
         onLogout={onLogout}
         onClear={onClear}
-        onSynchronize={onSynchronize}
         onTodoRedirect={onTodoRedirect}
+        onMemoAdd={onMemoAdd}
       />
 
-      <ProfileTable user={user}/>
+      <ProfileTable
+        todos={user.todos}
+        onSynchronize={onSynchronize}
+        memos={memos}
+      />
     </div>
   )
 }

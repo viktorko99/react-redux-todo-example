@@ -67,8 +67,12 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({userLogin}, dispatch);
+//two kinds of dispatching actions
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({userLogin}, dispatch);
+// }
+const mapDispatchToProps = {
+  userLogin,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
