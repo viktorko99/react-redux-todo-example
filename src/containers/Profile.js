@@ -28,7 +28,7 @@ class Profile extends Component {
   }
 
   handleTodoRedirect() {
-    this.props.history.push("/todo");
+    this.props.history.push('/todo');
   }
 
   handleMemoAdd() {
@@ -39,6 +39,7 @@ class Profile extends Component {
   handleLogout() {
     this.props.updateUser(this.props.user);
     this.props.userLogout();
+    this.props.history.push('/login');
   }
 
   handleSynchronize(event) {
