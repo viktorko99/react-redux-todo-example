@@ -20,10 +20,6 @@ class WelcomePage extends Component {
     }
   }
 
-  componentWillMount() {
-    console.log("WELCOME ---------- " + this.props);
-  }
-
   render() {
     return (
       <Grid style={{background: "#eee"}} fluid={true}>

@@ -15,7 +15,7 @@ function LoginForm({onLogin, onUserNameInputChange, onPasswordIntputChange, onUs
         <FormGroup bsSize="large">
           <FormControl type="text" placeholder="Name" id="userName" onChange={onUserInput} style={inputStyle}/>
           <FormControl id="password" label="Password" type="password"  placeholder="Password" onChange={onUserInput} style={inputStyle}/>
-          <Center><Link to='/register'>Not Registered? Register Here.</Link></Center>
+          <Center><Link to='/'>Not Registered? Register Here.</Link></Center>
         </FormGroup>
       </Center>
 

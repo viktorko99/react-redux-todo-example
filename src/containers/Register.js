@@ -39,7 +39,7 @@ class Register extends Component {
     this.props.userLogin(this.state.person);
 
     if (!this.props.history) {
-      this.props.onAdressChange();
+      setTimeout(this.props.onAdressChange, 10);
     } else {
       this.props.history.push('/profile');
     }

@@ -19,17 +19,17 @@ return (
         <FormControl type="text" placeholder="Description" id="description" onChange={onUserAdd} style={divStyle}/>
 
         <div className="form-group row">
-            <div className="col-xs-4">
-                <FormControl className="inputt" type="text" placeholder="Age" id="age" onChange={onUserAdd} required/>
-            </div>
+          <div className="col-xs-4">
+            <FormControl className="inputt" type="text" placeholder="Age" id="age" onChange={onUserAdd} required/>
+          </div>
 
-            <div className="col-xs-8">
-                <FormControl id="password" type="password" placeholder="Password" onChange={onUserAdd} required/>
-            </div>
+          <div className="col-xs-8">
+            <FormControl id="password" type="password" placeholder="Password" onChange={onUserAdd} required/>
+          </div>
         </div>
 
         <Center>
-          <Button bsStyle="primary" bsSize="large" onClick={onButtonClick}>
+          <Button bsStyle="primary" bsSize="large" id="register" onClick={onButtonClick}>
             Register Now!
           </Button>
         </Center>
