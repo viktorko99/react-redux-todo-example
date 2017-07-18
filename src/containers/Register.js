@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {addUser, userLogin} from '../actions/actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addUser, userLogin } from '../actions/actions';
 import RegisterComponent from '../components/Register/RegisterComponent';
 
 class Register extends Component {
@@ -13,11 +13,11 @@ class Register extends Component {
         first: '',
         last: '',
         age: 0,
-        description:'',
+        description: '',
         password: '',
         todos: [],
-      }
-    }
+      },
+    };
 
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleAddUser = this.handleAddUser.bind(this);
@@ -26,18 +26,16 @@ class Register extends Component {
   handleAddUser(event) {
     const { id, value } = event.target;
     this.setState({
-     person: {
+      person: {
         ...this.state.person,
-        [id]: value
-      }
+        [id]: value,
+      },
     });
   }
 
   handleButtonClick() {
     this.props.addUser(this.state.person);
-
     this.props.userLogin(this.state.person);
-
     if (!this.props.history) {
       setTimeout(this.props.onAdressChange, 10);
     } else {
@@ -56,20 +54,24 @@ class Register extends Component {
         onButtonClick={this.handleButtonClick}
         onUserAdd={this.handleAddUser}
       />
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
-   users: state.users
+    users: state.users,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-   return bindActionCreators(
-     {addUser,
-     userLogin}, dispatch);
+  return bindActionCreators(
+    {
+      addUser,
+      userLogin,
+    },
+    dispatch,
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

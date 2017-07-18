@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { userLogout, userLogin, updateUser, addMemo } from "../actions/actions";
-import ProfileComponent from "../components/Profile/ProfileComponent";
-import { clearState } from "../localStorage";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { userLogout, userLogin, updateUser, addMemo } from '../actions/actions';
+import ProfileComponent from '../components/Profile/ProfileComponent';
+import { clearState } from '../localStorage';
 
 class Profile extends Component {
   constructor() {
@@ -24,13 +24,9 @@ class Profile extends Component {
   componentWillMount() {
     if (this.props.user !== null) {
       this.setState({
-        memos: this.props.user.memos
+        memos: this.props.user.memos,
       });
     }
-  }
-
-  hadler(event) {
-
   }
 
   handleTodoRedirect() {
@@ -51,7 +47,7 @@ class Profile extends Component {
   handleSynchronize(event) {
     const { value } = event.target;
     this.setState({
-      memos: value
+      memos: value,
     });
   }
 
@@ -77,7 +73,7 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.activeUser
+    user: state.activeUser,
   };
 }
 
@@ -87,9 +83,9 @@ function mapDispatchToProps(dispatch) {
       userLogout,
       userLogin,
       updateUser,
-      addMemo
+      addMemo,
     },
-    dispatch
+    dispatch,
   );
 }
 

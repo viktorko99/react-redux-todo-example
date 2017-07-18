@@ -62,16 +62,16 @@ class Login extends Component {
 function mapStateToProps(state) {
   console.log(state.users);
   return {
-    users: state.users
+    users: state.users,
   };
 }
 
-//two kinds of dispatching actions
+// two kinds of dispatching actions
 // function mapDispatchToProps(dispatch) {
 //   return bindActionCreators({userLogin}, dispatch);
 // }
 const mapDispatchToProps = {
   userLogin,
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

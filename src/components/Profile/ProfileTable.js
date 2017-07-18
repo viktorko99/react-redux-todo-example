@@ -1,13 +1,13 @@
-import React from "react";
-import ProfileTodo from "./ProfileTodo";
-import ProfileFileUpload from "./ProfileFileUpload";
-import { Grid, Row, Col, Panel, FormGroup, FormControl } from "react-bootstrap";
+import React from 'react';
+import { Grid, Row, Col, Panel, FormGroup, FormControl } from 'react-bootstrap';
+
+import ProfileTodo from './ProfileTodo';
+import ProfileFileUpload from './ProfileFileUpload';
 
 function ProfileTable({ todos, onSynchronize, memos }) {
   return (
     <Grid>
       <Row className="show-grid">
-
         <Col sm={6} md={3}>
           <Panel collapsible defaultExpanded header="Active Todos">
             {todos.map(todo =>
@@ -15,7 +15,7 @@ function ProfileTable({ todos, onSynchronize, memos }) {
                 key={todo.id}
                 text={todo.text}
                 completed={todo.completed}
-              />
+              />,
             )}
           </Panel>
         </Col>

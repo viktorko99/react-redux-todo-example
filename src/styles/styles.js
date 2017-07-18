@@ -1,5 +1,5 @@
 export const inputStyle = {
-  margin: "7px"
+  margin: '7px',
 };
 
 export const divStyle = {
@@ -7,7 +7,7 @@ export const divStyle = {
 };
 
 export const dropzone = {
-  width : "100%",
-  height : "100%",
-  border : "1px solid silver",
+  width: '100%',
+  height: '100%',
+  border: '1px solid silver',
 };
