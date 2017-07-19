@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Row, Col, Panel, FormGroup, FormControl } from 'react-bootstrap';
 
 import ProfileTodo from './ProfileTodo';
-import ProfileFileUpload from './ProfileFileUpload';
 
 function ProfileTable({ todos, onSynchronize, memos }) {
   return (
@@ -30,10 +29,6 @@ function ProfileTable({ todos, onSynchronize, memos }) {
               onChange={onSynchronize}
             />
           </FormGroup>
-        </Col>
-
-        <Col sm={6} md={4}>
-          <ProfileFileUpload />
         </Col>
       </Row>
     </Grid>

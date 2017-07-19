@@ -18,7 +18,6 @@ class Profile extends Component {
     this.handleSynchronize = this.handleSynchronize.bind(this);
     this.handleTodoRedirect = this.handleTodoRedirect.bind(this);
     this.handleMemoAdd = this.handleMemoAdd.bind(this);
-    this.hadler = this.hadler.bind(this);
   }
 
   componentWillMount() {

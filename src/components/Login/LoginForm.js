@@ -7,8 +7,6 @@ import { inputStyle } from '../../styles/styles';
 function LoginForm(props) {
   const {
     onLogin,
-    onUserNameInputChange,
-    onPasswordIntputChange,
     onUserInput,
   } = props;
   return (
