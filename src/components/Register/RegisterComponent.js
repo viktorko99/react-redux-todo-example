@@ -5,11 +5,6 @@ import '../../styles/styles.css';
 import { divStyle } from '../../styles/styles';
 
 export default function RegisterComponent({
-  onFirstNameAdd,
-  onLastNameAdd,
-  onAgeAdd,
-  onDescriptionAdd,
-  onPasswordAdd,
   onButtonClick,
   onUserAdd,
 }) {

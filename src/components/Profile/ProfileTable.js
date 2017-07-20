@@ -9,12 +9,12 @@ function ProfileTable({ todos, onSynchronize, memos }) {
       <Row className="show-grid">
         <Col sm={6} md={3}>
           <Panel collapsible defaultExpanded header="Active Todos">
-            {todos.map(todo =>
+            {todos.map(todo => (
               <ProfileTodo
                 key={todo.id}
                 text={todo.text}
                 completed={todo.completed}
-              />,
+              />),
             )}
           </Panel>
         </Col>

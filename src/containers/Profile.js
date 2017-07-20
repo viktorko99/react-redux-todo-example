@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { userLogout, userLogin, updateUser, addMemo } from '../actions/actions';
 import ProfileComponent from '../components/Profile/ProfileComponent';
 import { clearState } from '../localStorage';
@@ -12,12 +11,6 @@ class Profile extends Component {
     this.state = {
       memos: '',
     };
-
-    this.handleLogout = this.handleLogout.bind(this);
-    this.hadleClearState = this.hadleClearState.bind(this);
-    this.handleSynchronize = this.handleSynchronize.bind(this);
-    this.handleTodoRedirect = this.handleTodoRedirect.bind(this);
-    this.handleMemoAdd = this.handleMemoAdd.bind(this);
   }
 
   componentWillMount() {
@@ -28,29 +21,25 @@ class Profile extends Component {
     }
   }
 
-  handleTodoRedirect() {
-    this.props.history.push('/todo');
-  }
-
-  handleMemoAdd() {
+  handleMemoAdd = () => {
     const { memos } = this.state;
     this.props.addMemo(memos);
   }
 
-  handleLogout() {
+  handleLogout = () => {
     this.props.updateUser(this.props.user);
     this.props.userLogout();
     this.props.history.push('/login');
   }
 
-  handleSynchronize(event) {
+  handleSynchronize = event => {
     const { value } = event.target;
     this.setState({
       memos: value,
     });
   }
 
-  hadleClearState() {
+  hadleClearState = () => {
     clearState();
     this.props.history.go(0);
   }
@@ -62,7 +51,6 @@ class Profile extends Component {
         onLogout={this.handleLogout}
         onClear={this.hadleClearState}
         onSynchronize={this.handleSynchronize}
-        onTodoRedirect={this.handleTodoRedirect}
         onMemoAdd={this.handleMemoAdd}
         memos={this.state.memos}
       />
@@ -76,16 +64,11 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      userLogout,
-      userLogin,
-      updateUser,
-      addMemo,
-    },
-    dispatch,
-  );
-}
+const mapDispatchToProps = {
+  userLogout,
+  userLogin,
+  updateUser,
+  addMemo,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

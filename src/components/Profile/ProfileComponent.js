@@ -9,7 +9,6 @@ function ProfileComponent(props) {
     onLogout,
     onClear,
     onSynchronize,
-    onTodoRedirect,
     memos,
     onMemoAdd,
   } = props;
@@ -24,7 +23,6 @@ function ProfileComponent(props) {
         user={user}
         onLogout={onLogout}
         onClear={onClear}
-        onTodoRedirect={onTodoRedirect}
         onMemoAdd={onMemoAdd}
       />
       <ProfileTable

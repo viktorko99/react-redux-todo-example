@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addTodo, setTodo, setVisibilityFilter } from '../actions/actions';
 import TodoComponent from '../components/Todo/TodoComponent';
@@ -24,14 +23,12 @@ class TodoContainer extends Component {
 
   handleAddTodoChange(event) {
     if (event.key === 'Enter') {
-      console.log('do validate');
       this.props.addTodo(event.target.value);
       event.target.value = '';
     }
   }
 
   handleActualTodoChange(todoID) {
-    console.log(todoID);
     this.props.setTodo(todoID);
   }
 
@@ -91,15 +88,10 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      addTodo,
-      setTodo,
-      setVisibilityFilter,
-    },
-    dispatch,
-  );
-}
+const mapDispatchToProps = {
+  addTodo,
+  setTodo,
+  setVisibilityFilter,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

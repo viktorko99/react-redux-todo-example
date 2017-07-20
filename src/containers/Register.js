@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { addUser, userLogin } from '../actions/actions';
 import RegisterComponent from '../components/Register/RegisterComponent';
 
@@ -64,14 +63,9 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      addUser,
-      userLogin,
-    },
-    dispatch,
-  );
-}
+const mapDispatchToProps = {
+  addUser,
+  userLogin,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

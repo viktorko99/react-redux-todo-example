@@ -29,9 +29,7 @@ class ProfileFileUpload extends Component {
             <Panel collapsible defaultExpanded header="Dropped Files">
               <ul>
                 {this.state.files.map(f =>
-                  <li>
-                    {f.name}
-                  </li>,
+                  (<li> {f.name} </li>),
                 )}
               </ul>
             </Panel>
