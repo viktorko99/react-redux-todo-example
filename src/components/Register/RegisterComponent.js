@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 import Center from 'react-center';
+
 import '../../styles/styles.css';
 import { divStyle } from '../../styles/styles';
 

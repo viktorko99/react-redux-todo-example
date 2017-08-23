@@ -14,7 +14,6 @@ function LoginForm(props) {
       <Center>
         <h1>Login</h1>
       </Center>
-
       <Center>
         <FormGroup bsSize="large">
           <FormControl
@@ -37,7 +36,6 @@ function LoginForm(props) {
           </Center>
         </FormGroup>
       </Center>
-
       <Center>
         <Button onClick={onLogin} style={inputStyle}>
           Log In
